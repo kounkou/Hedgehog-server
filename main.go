@@ -14,10 +14,10 @@ import (
 )
 
 type Question struct {
-    ID             string `json:"id" bson:"id"`
-    Category       string `json:"category" bson:"category"`
-    PlaceHolderCpp string `json:"placeHolderCpp" bson:"placeHolderCpp"`
-    PlaceHolderGo  string `json:"placeHolderGo" bson:"placeHolderGo"`
+    ID              string `json:"id" bson:"id"`
+    Category        string `json:"category" bson:"category"`
+    PlaceHolderCpp  string `json:"placeHolderCpp" bson:"placeHolderCpp"`
+    PlaceHolderGo   string `json:"placeHolderGo" bson:"placeHolderGo"`
     SpaceComplexity string `json:"spaceComplexity" bson:"spaceComplexity"`
     TimeComplexity  string `json:"timeComplexity" bson:"timeComplexity"`
     Difficulty      string `json:"difficulty" bson:"difficulty"`
