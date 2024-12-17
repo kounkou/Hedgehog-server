@@ -496,7 +496,7 @@
       "difficulty": "Easy",
       "question": "Write a recursive algorithm to calculate the factorial of a number.",
       "answerImage": "",
-      "answerCpp": "",
+      "answerCpp": "int factorial(int n) {\n    if (n <= 1) {\n    return 1; }\n    return n * factorial(n - 1);\n}",
       "answerGo": ""
     },
     {
