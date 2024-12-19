@@ -59,6 +59,18 @@
       "answerGo": "type DSU struct {\n  parent []int\n  rank   []int\n}\n\nfunc NewDSU(n int) *DSU {\n  dsu := &DSU{\n    parent: make([]int, n),\n    rank:   make([]int, n),\n  }\n  for i := 0; i < n; i++ {\n    dsu.parent[i] = i\n  }\n  return dsu\n}\n\nfunc (dsu *DSU) Find(v int) int {\n  if dsu.parent[v] != v {\n    dsu.parent[v] = dsu.Find(dsu.parent[v])\n  }\n  return dsu.parent[v]\n}\n\nfunc (dsu *DSU) Merge(a, b int) {\n  rootA := dsu.Find(a)\n  rootB := dsu.Find(b)\n  if rootA != rootB {\n    if dsu.rank[rootA] < dsu.rank[rootB] {\n      dsu.parent[rootA] = rootB\n    } else if dsu.rank[rootA] > dsu.rank[rootB] {\n      dsu.parent[rootB] = rootA\n    } else {\n      dsu.parent[rootB] = rootA\n      dsu.rank[rootA]++\n    }\n  }\n}"
     },
     {
+      "id": "inordered it.",
+      "category": "Graph",
+      "placeHolderCpp": "void collectNodesIterative(TreeNode* root, vector<TreeNode*>& nodes) { ... }",
+      "placeHolderGo": "",
+      "spaceComplexity: "",
+      "timeComplexity": "",
+      "difficulty": "Medium",
+      "question": "Inorder traversal iteratively",
+      "answerCpp": "void collectNodesIterative(TreeNode* root, vector<TreeNode*>& nodes) {\n    stack<TreeNode*> stk;\n    TreeNode* current = root;\n\n    while (!stk.empty() || current) {\n        while (current) {\n            stk.push(current);\n            current = current->left;\n        }\n        current = stk.top();\n        stk.pop();\n        nodes.push_back(current);\n        current = current->right;\n    }\n}",
+      "answerGo": ""
+    },
+    {
       "id": "bfs it.",
       "category": "Graph",
       "placeHolderCpp": "void bfs(int start) { ... }",
