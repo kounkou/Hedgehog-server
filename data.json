@@ -63,7 +63,7 @@
       "category": "Graph",
       "placeHolderCpp": "void collectNodesIterative(TreeNode* root, vector<TreeNode*>& nodes) { ... }",
       "placeHolderGo": "",
-      "spaceComplexity: "",
+      "spaceComplexity": "",
       "timeComplexity": "",
       "difficulty": "Medium",
       "question": "Inorder traversal iteratively",
