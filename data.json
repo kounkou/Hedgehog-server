@@ -237,7 +237,7 @@
       "difficulty": "Easy",
       "question": "Binary search",
       "answerImage": "../code-snipets/binary_search.png",
-      "answerCpp": "int binarySearch(vector<int>& nums, int t) { \n  int n = nums.size(); \n  int lo = 0; \n  int hi = n - 1; \n\n  while (lo <= hi) { \n    int mi = lo + ((hi - lo) >> 1); \n\n    if (nums[mi] == t) { \n      return mi; \n    } else if (nums[mi] > t) { \n      hi = mi - 1; \n    } else { \n      lo = mi + 1; \n    } \n  } \n\n  return -1; \n}",
+      "answerCpp": "int binarySearch(vector<int>& nums, int t) {\n    int n = nums.size(); \n    int lo = 0; \n    int hi = n - 1; \n\n    while (lo <= hi) {\n    int mi = lo + ((hi - lo) >> 1);\n\n    if (nums[mi] == t) {\n        return mi;\n    } else if (nums[mi] > t) {\n        hi = mi - 1;\n    } else { \n      lo = mi + 1; \n    } \n  } \n\n  return -1; \n}",
       "answerGo": "func binarySearch(nums []int, t int) int { \n  lo := 0 \n  hi := len(nums) - 1 \n  for lo <= hi { \n    mi := lo + (hi-lo)/2 \n    if nums[mi] == t { \n      return mi \n    } else if nums[mi] > t { \n      hi = mi - 1 \n    } else { \n      lo = mi + 1 \n    } \n  } \n  return -1 \n}"
     },
     {
