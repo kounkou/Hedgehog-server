@@ -43,7 +43,7 @@
       "placeHolderGo": "func solveNQueens(n int) [][]string { ... }",
       "difficulty": "Hard",
       "question": "Solve the N-Queens Problem",
-      "answerCpp": "void solveNQueens(int row, vector<string>& board, vector<vector<string>>& solutions, int n) { if (row == n) { solutions.push_back(board); return; } for (int col = 0; col < n; ++col) { if (isSafe(row, col, board, n)) { board[row][col] = 'Q'; solveNQueens(row + 1, board, solutions, n); board[row][col] = '.'; } }}bool isSafe(int row, int col, vector<string>& board, int n) { for (int i = 0; i < row; ++i) if (board[i][col] == 'Q') return false; for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; --i, --j) if (board[i][j] == 'Q') return false; for (int i = row - 1, j = col + 1; i >= 0 && j < n; --i, ++j) if (board[i][j] == 'Q') return false; return true;}",
+      "answerCpp": "void solveNQueens(int row, vector<string>& board, vector<vector<string>>& solutions, int n) {\n    if (row == n) {\n        solutions.push_back(board);\n        return;\n    }\n    for (int col = 0; col < n; ++col) {\n        if (isSafe(row, col, board, n)) {\n            board[row][col] = 'Q';\n            solveNQueens(row + 1, board, solutions, n);\n            board[row][col] = '.';\n        }\n    }\n}\nbool isSafe(int row, int col, vector<string>& board, int n) {\n    for (int i = 0; i < row; ++i)\n        if (board[i][col] == 'Q') return false;\n    for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; --i, --j)\n        if (board[i][j] == 'Q') return false;\n    for (int i = row - 1, j = col + 1; i >= 0 && j < n; --i, ++j)\n        if (board[i][j] == 'Q') return false;\n    return true;\n}",
       "answerGo": ""
     },
     {
@@ -55,7 +55,7 @@
       "timeComplexity": "O(M x α(N))",
       "difficulty": "Medium",
       "question": "Disjoint Set Union",
-      "answerCpp": "class DSU { public: DSU(int n) : _p(n), _r(n, 0) { for (int i = 0; i < n; ++i) _p[i] = i; } int find(int v) { return v == _p[v] ? v : _p[v] = find(_p[v]); } void merge(int a, int b) { a = find(a); b = find(b); if (a != b) { if (_r[a] < _r[b]) swap(a, b); _p[b] = a; if (_r[a] == _r[b]) _r[a]++; } } private: vector<int> _p, _r;};",
+      "answerCpp": "class DSU {\n   public:\n    DSU(int n) : _p(n), _r(n, 0) {\n        for (int i = 0; i < n; ++i) _p[i] = i;\n    }\n    int find(int v) {\n        return v == _p[v] ? v : _p[v] = find(_p[v]);\n    }\n    void merge(int a, int b) {\n        a = find(a);\n        b = find(b);\n        if (a != b) {\n            if (_r[a] < _r[b]) swap(a, b);\n            _p[b] = a;\n            if (_r[a] == _r[b]) _r[a]++;\n        }\n    }\n\n   private:\n    vector<int> _p, _r;\n};",
       "answerGo": "type DSU struct { parent []int rank []int}func NewDSU(n int) *DSU { dsu := &DSU{ parent: make([]int, n), rank: make([]int, n), } for i := 0; i < n; i++ { dsu.parent[i] = i } return dsu}func (dsu *DSU) Find(v int) int { if dsu.parent[v] != v { dsu.parent[v] = dsu.Find(dsu.parent[v]) } return dsu.parent[v]}func (dsu *DSU) Merge(a, b int) { rootA := dsu.Find(a) rootB := dsu.Find(b) if rootA != rootB { if dsu.rank[rootA] < dsu.rank[rootB] { dsu.parent[rootA] = rootB } else if dsu.rank[rootA] > dsu.rank[rootB] { dsu.parent[rootB] = rootA } else { dsu.parent[rootB] = rootA dsu.rank[rootA]++ } }}"
     },
     {
@@ -67,7 +67,7 @@
       "timeComplexity": "",
       "difficulty": "Medium",
       "question": "Inorder traversal iteratively",
-      "answerCpp": "void collectNodesIterative(TreeNode* root, vector<TreeNode*>& nodes) { stack<TreeNode*> stk; TreeNode* current = root; while (!stk.empty() || current) { while (current) { stk.push(current); current = current->left; } current = stk.top(); stk.pop(); nodes.push_back(current); current = current->right; }}",
+      "answerCpp": "void collectNodesIterative(TreeNode* root, vector<TreeNode*>& nodes) {\n    stack<TreeNode*> stk;\n    TreeNode* current = root;\n    while (!stk.empty() || current) {\n        while (current) {\n            stk.push(current);\n            current = current->left;\n        }\n        current = stk.top();\n        stk.pop();\n        nodes.push_back(current);\n        current = current->right;\n    }\n}",
       "answerGo": ""
     },
     {
