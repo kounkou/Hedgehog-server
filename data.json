@@ -540,12 +540,12 @@
     {
       "id": "split",
       "category": "String",
-      "placeHolderCpp": "vector<string> splitSentence(const string& sentence) { ...}",
+      "placeHolderCpp": "vector<string> splitSentence(const string& sentence) {\n    ...\n    }",
       "placeHolderGo": "{ ...}",
       "difficulty": "Medium",
       "question": "Split a sentence into words",
       "answerImage": "",
-      "answerCpp": "vector<string> splitSentence(const string& sentence) { stringstream ss(sentence); return { istream_iterator<string>(ss), {} };}",
+      "answerCpp": "vector<string> splitSentence(const string& sentence) {\n    stringstream ss(sentence);\n    return {\n    istream_iterator<string>(ss), {} };}",
       "answerGo": ""
     },
     {
